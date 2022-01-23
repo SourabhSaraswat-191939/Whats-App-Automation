@@ -29,7 +29,8 @@ browser.get("https://web.whatsapp.com/")
 
 # print(serverData)
 
-time.sleep(8)
+WebDriverWait(browser, 30).until(EC.presence_of_element_located((By.ID,"pane-side")))
+# time.sleep(15)
 
 
 # console.log(el1.style.transform.substring(11,el1.style.transform.length - 3)); \
@@ -66,15 +67,13 @@ def getChatList():
         print(">>>>>>>>>>>>>>>>>>>>>")
 
 
-
-
 def sendMsg():
     elements= []
     
     def updateList():
-        # print("Work Test")
+        print("Work Test")
         unSort_elements = getChatList()
-        # print("Work Test Done")
+        print("Work Test Done")
         # print(unSort_elements)
         sort_elements = []
         visited = set()
@@ -88,6 +87,11 @@ def sendMsg():
         elements.extend(sort_elements)
         
     updateList()    
+    # for _ in range(5):
+    #     print(">>>>>>>>>>>>>>>>>>>>>")
+    #     print(getChatList())
+    #     print(">>>>>>>>>>>>>>>>>>>>>")
+
     # print(elements)
     count=0
     blockContactList = getBlockContactList()
@@ -120,9 +124,13 @@ def sendMsg():
         
         count +=1
         # print(count)
-        if count==8:
+        if count==5:
             count=0 
+            print("Update List Called")
+            print(elements)
+            time.sleep(20)
             updateList()
+            print("Update List Finished")
             # print("=============")
             # elements.sort()
             # print(elements)
