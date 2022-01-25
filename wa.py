@@ -121,14 +121,13 @@ def sendMsg():
             
         except:
             pass
-        
+
         count +=1
-        # print(count)
         if count==5:
             count=0 
             print("Update List Called")
-            print(elements)
-            time.sleep(20)
+            # print(elements)
+            # time.sleep(20)
             updateList()
             print("Update List Finished")
             # print("=============")
